@@ -1,0 +1,78 @@
+<?xml version = "1.0" encoding  = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict //EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Image Viewer</title>
+    <style type="text/css">
+        .thumbs {
+                    width: 192px;
+                    height: 370px;
+                    padding: 5px;
+                    float: left;
+        }
+        .mainimg {
+                    width: 289px;
+                    padding: 5px;
+                    float: left;
+        }
+        .imgCover {
+                    height: 373px;
+        }
+        img       {
+                    border: 1px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        <!--
+        var interval = null;        // keeps track of interval
+        var speed = 6;              // determine the speed of animation
+        var count = 0;              // size of image during animation
+
+        // called repeatedly to animate the book cover
+        function run() {
+            count += speed;
+
+            // stop the animation when the image is large enough
+            if( count >= 375 ){
+                window.clearInterval( interval );
+                interval = null;
+            }
+
+            var bigImage = document.getElementById("imgCover");
+            bigImage.style.width = .7656 * count + "px";
+            bigImage.style.height = count + "px";
+        } // end run
+
+        // insert the proper image into the main image area and begins animation
+        function display( imgfile ) {
+            if ( interval )
+                    return;
+            var bigImage = document.getElementById( "imgCover");
+            var newNode = document.createElement("img");
+            newNode.id = "imgCover";
+            newNode.src = "imgs/" + imgfile;
+            newNode.alt = "Large image";
+            newNode.className = "imgCover";
+            newNode.style.width = "0px";
+            newNode.style.height = "0px";
+            bigImage.parentNode.replaceChild( newNode, bigImage );
+            count = 0;                 // start the image at size 0
+            interval = window.setInterval( "run()", 10);    //animate
+        } //end display
+
+        // -->
+    </script>
+</head>
+<body>
+<div id="mainimg" class="mainimg">
+    <img id="imgCover" src="imgs/1.jpg" alt="full image" class="imgCover"/>
+</div>
+<div id="thumbs" class="thumbs">
+    <img src="imgs/2.jpg" alt="2"
+        onclick="display('2.jpg')"/>
+    <img src="imgs/3.jpg" alt="3"
+         onclick="display('3.jpg')"/>
+</div>
+</body>
+</html>

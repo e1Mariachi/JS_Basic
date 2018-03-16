@@ -1,0 +1,53 @@
+<?xml version = "1.0" encoding  = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict //EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Simple Drawing Program</title>
+    <link rel="script" type="text/javascript" href="script.js">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+        //initialization function to insert cells into the table
+        function createCanvas() {
+            var side = 100;
+            var tbody = document.getElementById("tablebody");
+
+            for(var i=0; i< side; i++) {
+                var row = document.createElement("tr");
+                for(var j=0; j < side; j++) {
+                    var cell = document.createElement("td");
+                    cell.onmousemove = processMouseMove;
+                    row.appendChild(cell);
+                }
+
+                tbody.appendChild(row);
+            }
+        }
+
+        // processes the onmousemove event
+        function processMouseMove(e) {
+            if(!e)
+                var e = window.event;
+
+            //turn the cell blue if ctrl-key is pressed
+            if(e.ctrlKey)
+                this.style.backgroundColor = "blue";
+            //turn the cell red if shift-key is pressed
+            if(e.shiftKey)
+                this.style.backgroundColor = "red";
+        }
+    </script>
+
+</head>
+<body onload="createCanvas()">
+<table id="canvas" class="canvas">
+    <tbody id="tablebody">
+    <tr>
+        <th class="key" colspan="100">Hold <tt>ctrl</tt> or <tt>shift</tt> to draw blue or red.</th>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

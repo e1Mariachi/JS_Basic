@@ -1,0 +1,51 @@
+<?xml version = "1.0" encoding  = "utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict //EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>
+        Searching strings with indexOf and lastIndexOF
+    </title>
+    <script type="text/javascript">
+
+        <!--
+        var letters = "abcdefghijklmnopqrstuvwxyzabcdefghijklmn";
+        function buttonPressed() {
+            var searchForm = document.getElementById("searchForm");
+            var inputVal = document.getElementById("inputVal");
+            searchForm.elements[2].value =
+                    letters.indexOf(inputVal.value);
+            searchForm.elements[3].value =
+                    letters.lastIndexOf(inputVal.value);
+            searchForm.elements[4].value =
+                    letters.indexOf(inputVal.value, 12);
+            searchForm.elements[5].value =
+                    letters.lastIndexOf(inputVal.value, 12);
+        }
+        //-->
+    </script>
+</head>
+<body>
+<form id = "searchForm" action="">
+    <h2>String to search is: <br/>
+        abcdefghijklmnopqrstuvwxyzabcdefghijklmn
+    </h2>
+    <p>Enter substring to search for
+        <input id = "inputVal" type="text"/>
+        <input id = "search" type="button" value="search"
+            onclick="buttonPressed()" /><br/>
+    </p>
+
+    <p>First occurrence located at index
+        <input id="first" type="text" size="5" />
+        <br/>Last oocurance loacted at index
+        <input id="last" type="text" size="5" />
+        <br/>First occurance from index 12 located at index
+        <input id="first12" type="text" size="5"/>
+        <br/>Last occurance from index 12
+        <input id="last12" type="text" size="5"/>
+    </p>
+</form>
+</body>
+</html>
